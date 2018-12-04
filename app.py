@@ -72,13 +72,13 @@ tickets = [
 
 @app.route('/tickets', methods=['GET'])
 def get_tickets():
-    booking_number = request.args.get('booking_number')
-    if not booking_number:
+    if not request.args:
         return jsonify({'tickets': tickets})
+    res = []
     for ticket in tickets:
-        if ticket.get('booking_number') == booking_number:
-            return jsonify({'ticket': ticket})
-    return jsonify({'status': 'INVALID'})
+        if all(ticket.get(k) == v for k, v in request.args.items()):
+            res.append(ticket)
+    return jsonify({'tickets': res})
 
 
 # Probably won't use due to Solidity limitations
