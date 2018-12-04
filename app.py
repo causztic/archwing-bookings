@@ -51,7 +51,7 @@ def get_tickets():
         return jsonify({'error': 'invalid-args'})
     res = []
     for ticket in tickets:
-        if all(ticket.get(k) == v for k, v in request.args.items()):
+        if all(str(ticket.get(k)) == str(v) for k, v in request.args.items()):
             res.append(ticket)
     return jsonify({'tickets': res})
 
