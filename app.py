@@ -73,7 +73,7 @@ tickets = [
 @app.route('/tickets', methods=['GET', 'POST'])
 def get_tickets():
     if not request.args:
-        return jsonify({'tickets': tickets})
+        return jsonify({'error': 'no-args-given'})
     if not check_args(request.args):
         return jsonify({'error': 'invalid-args'})
     res = []
