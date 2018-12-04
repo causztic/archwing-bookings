@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
@@ -70,11 +69,19 @@ tickets = [
 
     {'booking_number': 'AAAAV', 'departure': '2019-01-18 03:00:00', 'arrival': '2019-01-18 06:50:00', 'status': 'NORMAL', 'type': 'return', 'return_departure': '2019-01-19 05:50:00', 'return_arrival': '2019-01-19 09:40:00', 'return_status': 'NORMAL'}]
 
+
 @app.route('/tickets', methods=['GET'])
-def returnAll():
-    return jsonify({'tickets': tickets})
+def get_tickets():
+    booking_number = request.args.get('booking_number')
+    if not booking_number:
+        return jsonify({'tickets': tickets})
+    for ticket in tickets:
+        if ticket.get('booking_number') == booking_number:
+            return jsonify({'ticket': ticket})
+    return jsonify({'status': 'INVALID'})
 
 
+# Probably won't use due to Solidity limitations
 @app.route('/tickets/<string:name>', methods=['GET'])
 def return_status(name):
     status = 'INVALID'
