@@ -70,7 +70,7 @@ tickets = [
     {'booking_number': 'AAAAV', 'departure': '2019-01-18 03:00:00', 'arrival': '2019-01-18 06:50:00', 'status': 'NORMAL', 'type': 'return', 'return_departure': '2019-01-19 05:50:00', 'return_arrival': '2019-01-19 09:40:00', 'return_status': 'NORMAL'}]
 
 
-@app.route('/tickets', methods=['GET'])
+@app.route('/tickets', methods=['GET', 'POST'])
 def get_tickets():
     if not request.args:
         return jsonify({'tickets': tickets})
