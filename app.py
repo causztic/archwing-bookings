@@ -74,7 +74,7 @@ tickets = [
 def get_tickets():
     if not request.args:
         return jsonify({'tickets': tickets})
-    if not check_args(args):
+    if not check_args(request.args):
         return jsonify(['error': 'invalid-args'])
     res = []
     for ticket in tickets:

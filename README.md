@@ -1,5 +1,5 @@
-# archwing-bookings
+# Archwing Bookings
+API for [Archwing](https://github.com/causztic/archwing)
 
 ## Endpoints
-- /tickets
-- /tickets/<string:name>
+- /tickets (with parameters support)
