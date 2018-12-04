@@ -74,12 +74,23 @@ tickets = [
 def get_tickets():
     if not request.args:
         return jsonify({'tickets': tickets})
+    if not check_args(args):
+        return jsonify(['error': 'invalid-args'])
     res = []
     for ticket in tickets:
         if all(ticket.get(k) == v for k, v in request.args.items()):
             res.append(ticket)
     return jsonify({'tickets': res})
 
+def check_args(args):
+    allowed = [
+        'booking_number', 'departure', 'arrival', 'status', 'type',
+        'return_departure', 'return_arrival', 'return_status'
+    ]
+    for arg in args.keys():
+        if arg not in allowed:
+            return False
+    return True
 
 # Probably won't use due to Solidity limitations
 @app.route('/tickets/<string:name>', methods=['GET'])
