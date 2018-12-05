@@ -49,11 +49,10 @@ def get_tickets():
         return jsonify({'error': 'no-args-given'})
     if not check_args(request.args):
         return jsonify({'error': 'invalid-args'})
-    res = []
     for ticket in tickets:
         if all(str(ticket.get(k)) == str(v) for k, v in request.args.items()):
-            res.append(ticket)
-    return jsonify({'tickets': res})
+            return jsonify({'ticket': ticket})
+    return jsonify({'ticket': None})
 
 def check_args(args):
     allowed = [
