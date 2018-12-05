@@ -71,7 +71,7 @@ def get_ticket():
     for ticket in TICKETS:
         if all(str(ticket.get(k)) == str(v) for k, v in request.args.items()):
             return jsonify({'ticket': ticket})
-    return jsonify({'ticket': None})
+    return jsonify({'ticket': 0})
 
 
 def check_args(args):
