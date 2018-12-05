@@ -8,7 +8,7 @@ TICKETS = [
      'arrival': 1542876120, 'status': 0, 'return': 0},
 
     {'booking_number': 'AAAAB', 'departure': 1542868560,
-     'arrival': 1542876120, 'status': 0, 'return': 0,
+     'arrival': 1542876120, 'status': 0, 'return': 1,
      'return_departure': 1542958920, 'return_arrival': 1542966480,
      'return_status': 0},
 
