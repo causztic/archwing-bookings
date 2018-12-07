@@ -77,7 +77,7 @@ def get_ticket():
 def check_args(args):
     """Check if request params are valid"""
     allowed = [
-        'booking_number', 'departure', 'arrival', 'status', 'type',
+        'booking_number', 'departure', 'arrival', 'status', 'return',
         'return_departure', 'return_arrival', 'return_status'
     ]
     for arg in args.keys():
