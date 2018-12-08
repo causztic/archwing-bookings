@@ -9,16 +9,20 @@ TICKETS = [
 
     {'booking_number': 'AAAAB', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 0, 'return': 1,
-     'return_departure': 1542958920, 'return_arrival': 1542966480,
-     'return_status': 0},
+     'return_details': {
+         'return_departure': 1542958920, 'return_arrival': 1542966480,
+         'return_status': 0}
+     },
 
     {'booking_number': 'AAAAC', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 1, 'return': 0},
 
     {'booking_number': 'AAAAD', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 1, 'return': 1,
-     'return_departure': 1542958920, 'return_arrival': 1542966480,
-     'return_status': 1},
+     'return_details': {
+         'return_departure': 1542958920, 'return_arrival': 1542966480,
+         'return_status': 1}
+     },
 
     {'booking_number': 'AAAAE', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 2, 'return': 0},
