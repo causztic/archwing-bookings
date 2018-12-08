@@ -8,54 +8,50 @@ TICKETS = [
      'arrival': 1542876120, 'status': 0, 'return': 0},
 
     {'booking_number': 'AAAAB', 'departure': 1542868560,
-     'arrival': 1542876120, 'status': 0, 'return': 1,
-     'return_details': {
-         'return_departure': 1542958920, 'return_arrival': 1542966480,
-         'return_status': 0}
-     },
+     'arrival': 1542876120, 'status': 0, 'return': 1},
+    {'booking_number': 'AAAAB', 'departure': 1542958920,
+     'arrival': 1542966480, 'status': 0, 'return': 2},
 
     {'booking_number': 'AAAAC', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 1, 'return': 0},
 
     {'booking_number': 'AAAAD', 'departure': 1542868560,
-     'arrival': 1542876120, 'status': 1, 'return': 1,
-     'return_details': {
-         'return_departure': 1542958920, 'return_arrival': 1542966480,
-         'return_status': 1}
-     },
+     'arrival': 1542876120, 'status': 1, 'return': 1},
+    {'booking_number': 'AAAAD', 'departure': 1542958920,
+     'arrival': 1542966480, 'status': 1, 'return': 2},
 
     {'booking_number': 'AAAAE', 'departure': 1542868560,
      'arrival': 1542876120, 'status': 2, 'return': 0},
 
     {'booking_number': 'AAAAF', 'departure': 1542868560,
-     'arrival': 1542876120, 'status': 2, 'return': 1,
-     'return_departure': 1542958920, 'return_arrival': 1542966480,
-     'return_status': 2},
+     'arrival': 1542876120, 'status': 2, 'return': 1},
+    {'booking_number': 'AAAAF', 'departure': 1542958920,
+     'arrival': 1542966480, 'status': 2, 'return': 2},
 
     # Available booking numbers to purchase
     {'booking_number': 'AAAAG', 'departure': 1546407780,
      'arrival': 1546412160, 'status': 0, 'return': 0},
 
     {'booking_number': 'AAAAH', 'departure': 1546407780,
-     'arrival': 1546412160, 'status': 0, 'return': 1,
-     'return_departure': 1546494960, 'return_arrival': 1546499340,
-     'return_status': 0},
+     'arrival': 1546412160, 'status': 0, 'return': 1},
+    {'booking_number': 'AAAAH', 'departure': 1546494960,
+     'arrival': 1546499340, 'status': 0, 'return': 2},
 
     {'booking_number': 'AAAAI', 'departure': 1546407780,
      'arrival': 1546412160, 'status': 1, 'return': 0},
 
     {'booking_number': 'AAAAJ', 'departure': 1546407780,
-     'arrival': 1546412160, 'status': 1, 'return': 1,
-     'return_departure': 1546494960, 'return_arrival': 1546499340,
-     'return_status': 1},
+     'arrival': 1546412160, 'status': 1, 'return': 1},
+    {'booking_number': 'AAAAJ', 'departure': 1546494960,
+     'arrival': 1546499340, 'status': 1, 'return': 2},
 
     {'booking_number': 'AAAAK', 'departure': 1546407780,
      'arrival': 1546412160, 'status': 2, 'return': 0},
 
     {'booking_number': 'AAAAL', 'departure': 1546407780,
-     'arrival': 1546412160, 'status': 2, 'return': 1,
-     'return_departure': 1546494960, 'return_arrival': 1546499340,
-     'return_status': 2},
+     'arrival': 1546412160, 'status': 2, 'return': 1},
+    {'booking_number': 'AAAAL', 'departure': 1546494960,
+     'arrival': 1546499340, 'status': 2, 'return': 2}
 ]
 
 
@@ -80,10 +76,7 @@ def get_ticket():
 
 def check_args(args):
     """Check if request params are valid"""
-    allowed = [
-        'booking_number', 'departure', 'arrival', 'status', 'return',
-        'return_departure', 'return_arrival', 'return_status'
-    ]
+    allowed = ['booking_number', 'departure', 'arrival', 'status', 'return']
     for arg in args.keys():
         if arg not in allowed:
             return False
